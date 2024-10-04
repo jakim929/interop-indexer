@@ -149,11 +149,8 @@ ponder.on(
 ponder.on(
   'L2ToL2CrossDomainMessenger:FailedRelayedMessage',
   async ({ event, context }) => {
-    const {
-      L2ToL2CrossDomainMessage,
-      L2ToL2CrossDomainMessageToTransaction,
-      ExecutingMessage,
-    } = context.db
+    const { L2ToL2CrossDomainMessage, L2ToL2CrossDomainMessageToTransaction } =
+      context.db
 
     const { transaction } = event
     const { messageHash } = event.args
@@ -233,6 +230,10 @@ const storeTransaction = async (
   })
 }
 
+// This function retrieves the executing message ID for a given L2-to-L2 cross-domain message.
+// It fetches the message, encodes it, finds matching executing messages, and returns the latest one.
+// Assumes message exists, encoding matches on-chain event, and at least one executing message is found.
+// This is okay because Ponder globally orders events across multiple chains
 const getExecutingMessageIdForL2ToL2Message = async (
   db: Context['db'],
   blockHash: Hex,
