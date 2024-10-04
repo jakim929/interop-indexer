@@ -20,8 +20,6 @@ export const encodeL2ToL2CrossDomainSentMessageEvent = (
     },
   })
 
-  console.log('message', message)
-
   const data = encodeAbiParameters(
     [{ type: 'address' }, { type: 'bytes' }],
     [message.sender, message.message],
@@ -35,8 +33,6 @@ export const encodeL2ToL2CrossDomainSentMessageEvent = (
   if (topics[3] === null) {
     topics[3] = toHex(message.nonce, { size: 32 })
   }
-
-  console.log('topics', topics)
 
   return encodePacked(['bytes32[]', 'bytes'], [topics as `0x${string}`[], data])
 }
