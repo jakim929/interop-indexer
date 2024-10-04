@@ -1,24 +1,38 @@
-import { createConfig } from "@ponder/core";
-import { http } from "viem";
+import { createConfig } from '@ponder/core'
+import { http } from 'viem'
 
-import { PrimitiveManagerAbi } from "./abis/PrimitiveManagerAbi";
+import { L2ToL2CrossDomainMessengerAbi } from './abis/L2ToL2CrossDomainMessengerAbi'
+import { CrossL2InboxAbi } from './abis/CrossL2InboxAbi'
 
 export default createConfig({
   networks: {
-    mainnet: {
-      chainId: 1,
-      transport: http(process.env.PONDER_RPC_URL_1),
+    opChainA: {
+      chainId: 901,
+      transport: http(process.env.PONDER_RPC_URL_901),
+    },
+    opChainB: {
+      chainId: 902,
+      transport: http(process.env.PONDER_RPC_URL_902),
     },
   },
   contracts: {
-    PrimitiveManager: {
-      network: "mainnet",
-      abi: PrimitiveManagerAbi,
-      address: "0x54522dA62a15225C95b01bD61fF58b866C50471f",
-      startBlock: 14438081,
-      filter: {
-        event: "Swap",
+    L2ToL2CrossDomainMessenger: {
+      address: '0x4200000000000000000000000000000000000023',
+      network: {
+        opChainA: {},
+        opChainB: {},
       },
+      abi: L2ToL2CrossDomainMessengerAbi,
+      startBlock: 0,
+    },
+    CrossL2Inbox: {
+      address: '0x4200000000000000000000000000000000000022',
+      network: {
+        opChainA: {},
+        opChainB: {},
+      },
+      abi: CrossL2InboxAbi,
+      startBlock: 0,
     },
   },
-});
+})

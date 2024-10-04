@@ -8,7 +8,8 @@
     "codegen": "ponder codegen",
     "serve": "ponder serve",
     "lint": "eslint .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "clean": "rm -rf .ponder && rm -rf generated"
   },
   "dependencies": {
     "@ponder/core": "^0.6.6",
