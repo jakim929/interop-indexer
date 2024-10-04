@@ -1,8 +1,10 @@
-# Superchain Interoperability Indexer
+# ⏺️ Superchain Interoperability Indexer
 
-A [Ponder](https://github.com/ponder-sh/ponder)-based indexer for [CrossL2Inbox](https://specs.optimism.io/interop/predeploys.html#crossl2inbox) and [L2ToL2CrossDomainMessenger](https://specs.optimism.io/interop/predeploys.html#l2tol2crossdomainmessenger) in the Optimism ecosystem.
+A [Ponder](https://github.com/ponder-sh/ponder)-based indexer for the Superchain interoperability contracts: [CrossL2Inbox](https://specs.optimism.io/interop/predeploys.html#crossl2inbox) and [L2ToL2CrossDomainMessenger](https://specs.optimism.io/interop/predeploys.html#l2tol2crossdomainmessenger) .
 
-## Features
+<img width="696" alt="Screenshot 2024-10-04 at 3 04 30 PM" src="https://github.com/user-attachments/assets/b0fcdd53-ae88-4176-bd69-e27ad16ca88f">
+
+## ✨ Features
 
 - Indexes cross-domain messages between L2 networks within the Superchain ecosystem
 - Tracks the complete lifecycle of L2-to-L2 cross-domain messages:
@@ -11,7 +13,7 @@ A [Ponder](https://github.com/ponder-sh/ponder)-based indexer for [CrossL2Inbox]
   - Failed relayed messages
 - Stores comprehensive data including transaction details, identifiers, and `ExecutingMessage` associated with cross-chain message events
 
-## Getting Started (Local Development)
+## 🚀 Getting Started (Local Development)
 
 Follow these steps to set up and run the indexer locally:
 
@@ -41,10 +43,10 @@ Follow these steps to set up and run the indexer locally:
 
    Open `.env.local` and update it with your specific RPC URLs and any other required configurations. The default config will work with the default networks in `supersim`
 
-5. **Launch the Indexer:**
+5. **Run the Indexer:**
    Start the indexer in development mode:
    ```sh
    pnpm dev
    ```
 
-Now your local Superchain Interoperability Indexer should be up and running!
+Go to http://localhost:42069/ to see the GraphQL UI!
